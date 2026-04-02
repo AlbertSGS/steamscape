@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Steam Visibility Landscape</title>
+  <script type="module" crossorigin src="/steamscape/assets/index-MA2ZX_Mn.js"></script>
+  <link rel="stylesheet" crossorigin href="/steamscape/assets/index-CJdk8qhh.css">
+</head>
+
+<body>
+  <div id="app">
+    <div id="topbar" style="display: contents;">
+      <div id="controls" style="position: absolute; top: 20px; left: 20px; z-index: 20;">
+        <h1>Steam Visibility Landscape</h1>
+        <p class="subtitle" id="status">Loading processed data...</p>
+        <div class="status">
+          Proximity = similarity<br>
+          Height = visibility
+        </div>
+        <select id="story-select">
+          <option value="overview">Market Overview</option>
+          <option value="indie">Indie vs Non-Indie</option>
+          <option value="competition">Competition Clusters</option>
+        </select>
+        <div class="search-block">
+          <label for="game-search-input">Find Game</label>
+          <div class="search-row">
+            <input id="game-search-input" type="text" placeholder="Search by game name" />
+            <button id="game-search-btn" type="button">Go</button>
+          </div>
+          <div id="game-search-status"></div>
+        </div>
+        <button id="recompute-layout-btn" title="(Only needed if you change filters or want a fresh layout)">Recompute
+          Layout</button>
+        <label for="metric-select">Visibility Metric</label>
+        <select id="metric-select">
+          <option value="compositeVisibility">Composite Visibility</option>
+          <option value="reviewVolume">Review Volume</option>
+          <option value="ownershipReach">Ownership Reach</option>
+          <option value="engagement">Engagement</option>
+          <option value="currentAttention">Current Attention</option>
+        </select>
+
+        <label for="type-select">Game Type</label>
+        <select id="type-select">
+          <option value="all">All Games</option>
+          <option value="indie">Indie Only</option>
+          <option value="nonIndie">Non-Indie Only</option>
+        </select>
+
+        <label for="genre-select">Genre</label>
+        <select id="genre-select">
+          <option value="all">All Genres</option>
+        </select>
+
+        <label>Year:</label>
+        <input type="range" id="year-slider" min="2009" max="2026" step="1" value="2026">
+        <span id="year-value">2026</span>
+      </div>
+    </div>
+
+
+    <div id="info-panel" style="position: absolute; right: 20px; top: 20px; z-index: 20;">
+      <h2>Selected / Current View</h2>
+      <pre id="current-view">Waiting...</pre>
+      <br />
+
+      <h2>What Height Means</h2>
+      <p id="metric-meaning">Waiting...</p>
+      <br />
+
+      <h2>What You're Seeing</h2>
+      <p id="interpretation">Waiting...</p>
+      <br />
+
+      <h2>Top Peaks</h2>
+      <pre id="top-peaks">Waiting...</pre>
+    </div>
+    <div id="story-caption">
+      <div class="story-controls-bottom">
+        <button id="story-prev-btn" type="button">Prev</button>
+        <button id="story-play-btn" type="button">Play</button>
+        <button id="story-next-btn" type="button">Next</button>
+      </div>
+      <div class="story-text">Use the story controls to step through the narrative.</div>
+    </div>
+
+    <div id="content" style="display: block; height: 100%;">
+      <div id="scene-container" style="width: 100%; height: 100%; position: relative;">
+        <div id="tooltip" hidden></div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
